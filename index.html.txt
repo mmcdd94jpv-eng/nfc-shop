@@ -1,0 +1,485 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFC 商家服务中心</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#f5f6f8;
+      font-family:Arial,"Microsoft YaHei";
+      color:#222;
+    }
+
+    .container{
+      max-width:430px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:22px;
+      padding:25px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .logo{
+      width:90px;
+      height:90px;
+      background:#111;
+      color:#fff;
+      border-radius:50%;
+      line-height:90px;
+      text-align:center;
+      margin:auto;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    h1{
+      text-align:center;
+      margin-top:18px;
+      font-size:28px;
+    }
+
+    .desc{
+      text-align:center;
+      margin-top:8px;
+      margin-bottom:24px;
+      color:#666;
+      font-size:14px;
+    }
+
+    .review-box{
+      background:#f8f8f8;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:20px;
+    }
+
+    .review-title{
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .review-tip{
+      color:#777;
+      font-size:13px;
+      margin-bottom:15px;
+      line-height:1.6;
+    }
+
+    .keywords{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:30px;
+      padding:10px 14px;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:14px;
+    }
+
+    .tag:hover{
+      background:#111;
+      color:#fff;
+    }
+
+    .review-result{
+      margin-top:18px;
+      background:#fff;
+      border-radius:14px;
+      padding:16px;
+      min-height:140px;
+      border:1px solid #eee;
+      line-height:1.9;
+      font-size:15px;
+      color:#333;
+      white-space:pre-wrap;
+    }
+
+    .copy-btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      background:#111;
+      color:#fff;
+      border-radius:14px;
+      margin-top:15px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    .btn{
+      display:block;
+      width:100%;
+      text-decoration:none;
+      text-align:center;
+      color:#fff;
+      padding:16px;
+      border-radius:14px;
+      margin-top:14px;
+      font-size:17px;
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+    }
+
+    .ctrip{
+      background:#007aff;
+    }
+
+    .meituan{
+      background:#ffcc00;
+      color:#111;
+    }
+
+    .dianping{
+      background:#ff6a00;
+    }
+
+    .wechat{
+      background:#07c160;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:24px;
+      color:#999;
+      font-size:12px;
+    }
+
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:999;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.55);
+    }
+
+    .modal-content{
+      background:#fff;
+      width:85%;
+      max-width:330px;
+      margin:120px auto;
+      padding:25px;
+      border-radius:18px;
+      text-align:center;
+      position:relative;
+    }
+
+    .close{
+      position:absolute;
+      right:18px;
+      top:10px;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .wechat-qr{
+      width:220px;
+      height:220px;
+      margin:18px auto;
+      display:block;
+      border-radius:12px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="logo">店</div>
+
+    <h1>商家服务中心</h1>
+
+    <div class="desc">
+      欢迎光临 · 感谢您的支持 ❤️
+    </div>
+
+    <div class="review-box">
+
+      <div class="review-title">
+        ⭐ AI随机评价
+      </div>
+
+      <div class="review-tip">
+        点击关键词自动生成随机长评价，并自动复制
+      </div>
+
+      <div class="keywords">
+
+        <div class="tag" onclick="generateReview('服务很好')">
+          服务很好
+        </div>
+
+        <div class="tag" onclick="generateReview('环境不错')">
+          环境不错
+        </div>
+
+        <div class="tag" onclick="generateReview('性价比高')">
+          性价比高
+        </div>
+
+        <div class="tag" onclick="generateReview('非常推荐')">
+          非常推荐
+        </div>
+
+        <div class="tag" onclick="generateReview('干净卫生')">
+          干净卫生
+        </div>
+
+        <div class="tag" onclick="generateReview('前台热情')">
+          前台热情
+        </div>
+
+        <div class="tag" onclick="generateReview('体验很好')">
+          体验很好
+        </div>
+
+        <div class="tag" onclick="generateReview('交通方便')">
+          交通方便
+        </div>
+
+        <div class="tag" onclick="generateReview('朋友聚会')">
+          朋友聚会
+        </div>
+
+        <div class="tag" onclick="generateReview('情侣约会')">
+          情侣约会
+        </div>
+
+      </div>
+
+      <div class="review-result" id="reviewResult">
+        点击关键词生成随机评价...
+      </div>
+
+      <button class="copy-btn" onclick="copyReview()">
+        一键复制评价
+      </button>
+
+    </div>
+
+    <a class="btn ctrip"
+       href="https://www.ctrip.com/"
+       target="_blank">
+       ✈️ 打开携程
+    </a>
+
+    <a class="btn meituan"
+       href="https://www.meituan.com/"
+       target="_blank">
+       🟡 打开美团
+    </a>
+
+    <a class="btn dianping"
+       href="https://www.dianping.com/"
+       target="_blank">
+       ⭐ 打开大众点评
+    </a>
+
+    <button class="btn wechat"
+            onclick="showWechatQR()">
+            📱 添加前台微信
+    </button>
+
+    <div class="footer">
+      NFC 碰一碰智慧营销系统
+    </div>
+
+  </div>
+
+</div>
+
+<div id="wechatModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close"
+          onclick="closeWechatQR()">
+          ×
+    </span>
+
+    <h3>扫码添加前台微信</h3>
+
+    <img src="wechat-qr.png"
+         class="wechat-qr"
+         alt="前台微信二维码">
+
+    <p>长按识别二维码添加微信</p>
+
+  </div>
+
+</div>
+
+<script>
+
+const reviews = {
+
+  "服务很好": {
+
+    start:[
+      "第一次来这边体验，",
+      "今天和朋友一起过来，",
+      "整体感觉真的不错，",
+      "体验结束以后，",
+      "朋友推荐我来的，"
+    ],
+
+    middle:[
+      "工作人员服务特别热情，整个过程体验很好。",
+      "从进门开始接待就很专业，让人感觉很舒服。",
+      "服务细节做得很好，整体体验感非常不错。",
+      "工作人员很耐心，流程也特别顺畅。",
+      "服务态度真的很好，体验超出预期。"
+    ],
+
+    end:[
+      "以后还会再来。",
+      "推荐大家过来体验一下。",
+      "整体还是很满意的。",
+      "下次会带朋友一起来。",
+      "感觉这次来得很值。"
+    ]
+
+  },
+
+  "环境不错": {
+
+    start:[
+      "店里的整体环境很好，",
+      "刚进门的时候，",
+      "整体装修风格很舒服，",
+      "第一次来感觉环境很加分，"
+    ],
+
+    middle:[
+      "装修风格很高级，拍照也很好看。",
+      "整体环境干净整洁，让人感觉很舒服。",
+      "店内氛围特别好，很适合放松。",
+      "卫生做得特别到位，细节很好。"
+    ],
+
+    end:[
+      "很适合朋友一起来。",
+      "以后还会再来体验。",
+      "推荐大家过来看看。",
+      "体验感真的很好。"
+    ]
+
+  },
+
+  "性价比高": {
+
+    start:[
+      "本来只是随便试试看，",
+      "体验完以后感觉，",
+      "整体来说还是挺满意的，",
+      "这个价格能有这样的体验，"
+    ],
+
+    middle:[
+      "价格很合理，整体体验超出预期。",
+      "服务和品质都很不错，性价比很高。",
+      "整体价格不贵，但是体验很好。",
+      "花这个价格能有这种体验真的挺值。"
+    ],
+
+    end:[
+      "以后会经常过来。",
+      "推荐大家体验一下。",
+      "下次还会再来。",
+      "整体还是很满意的。"
+    ]
+
+  }
+
+};
+
+function generateReview(keyword){
+
+  const resultBox =
+  document.getElementById("reviewResult");
+
+  const data = reviews[keyword];
+
+  const start =
+  data.start[Math.floor(Math.random()*data.start.length)];
+
+  const middle1 =
+  data.middle[Math.floor(Math.random()*data.middle.length)];
+
+  const middle2 =
+  data.middle[Math.floor(Math.random()*data.middle.length)];
+
+  const end =
+  data.end[Math.floor(Math.random()*data.end.length)];
+
+  const finalText =
+  start + middle1 + middle2 + end;
+
+  resultBox.innerHTML = finalText;
+
+  navigator.clipboard.writeText(finalText);
+
+  alert("随机评价已自动复制");
+
+}
+
+function copyReview(){
+
+  const text =
+  document.getElementById("reviewResult").innerText;
+
+  navigator.clipboard.writeText(text);
+
+  alert("评价已复制");
+
+}
+
+function showWechatQR(){
+
+  document.getElementById("wechatModal").style.display =
+  "block";
+
+}
+
+function closeWechatQR(){
+
+  document.getElementById("wechatModal").style.display =
+  "none";
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
