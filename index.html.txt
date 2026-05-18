@@ -482,4 +482,3 @@ function closeWechatQR(){
 </body>
 
 </html>
-```
