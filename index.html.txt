@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -476,6 +475,7 @@ function closeWechatQR(){
   "none";
 
 }
+</html>
 
 </script>
 
