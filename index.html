@@ -59,6 +59,7 @@ h1{text-align:center;margin-top:18px;font-size:28px;}
 <div class="tag" onclick="generateReview('体验很好')">体验很好</div>
 <div class="tag" onclick="generateReview('交通方便')">交通方便</div>
 <div class="tag" onclick="generateReview('朋友聚会')">朋友聚会</div>
+<div class="tag" onclick="generateReview('情侣约会')">情侣约会</div>
 </div>
 
 <div class="review-result" id="reviewResult">点击关键词生成随机长评价...</div>
@@ -109,8 +110,6 @@ const QR_CONFIG = {
   }
 };
 
-const recentReviews = [];
-
 const reviewParts = {
   "服务很好": ["服务态度特别好", "工作人员很热情", "接待过程很专业", "沟通起来很舒服", "服务细节很到位"],
   "环境不错": ["环境干净舒服", "装修风格很好看", "整体氛围很放松", "空间很整洁", "卫生做得很到位"],
@@ -124,48 +123,31 @@ const reviewParts = {
   "情侣约会": ["很适合情侣约会", "氛围比较舒服", "环境很有感觉", "两个人体验很放松", "整体感觉很温馨"]
 };
 
-const starts = [
+const reviewStarts = [
   "第一次过来体验，整体感觉比预想中更好。",
-  "今天和朋友一起过来，整体体验还是挺满意的。",
+  "今天和朋友一起过来，整体体验非常满意。",
   "之前看评价觉得不错，这次过来确实没有失望。",
-  "整体来说这次体验很舒服，很多地方都比较到位。",
+  "整体来说这次体验很舒服，很多细节都比较到位。",
   "这次过来感觉挺惊喜的，整体体验感很不错。",
-  "朋友之前推荐过这里，实际体验下来确实可以。",
-  "本来只是顺路过来试试，没想到整体感觉挺好。",
-  "这次体验下来印象比较深，整体服务和环境都不错。",
-  "整体感觉挺舒服的，进来以后氛围就比较放松。",
-  "今天体验完以后感觉挺满意，很多细节都不错。"
+  "临时决定过来体验一下，没想到整体感觉很好。",
+  "朋友之前推荐过这里，这次过来以后感觉确实不错。",
+  "整体环境和服务都比较在线，体验过程很自然舒服。",
+  "这次体验下来印象挺好的，很多地方都做得比较细。",
+  "从进门开始感觉就不错，整体流程也比较顺畅。"
 ];
 
-const details = [
-  "整个过程没有明显等待，安排也比较顺畅。",
-  "细节方面处理得比较认真，让人感觉比较放心。",
-  "工作人员沟通起来比较自然，没有让人有压力。",
-  "整体氛围比较轻松，很适合过来放松一下。",
-  "体验过程中感觉比较舒服，节奏也刚刚好。",
-  "环境和服务都比较稳定，没有让人失望。",
-  "很多小细节能看出来店里还是挺用心的。",
-  "整体感觉比较自然，体验完成以后满意度挺高。",
-  "不管是环境还是服务，都能看出来有认真打理。",
-  "这次整体体验比较顺心，感觉比预期更好一些。"
+const reviewEnds = [
+  "整个过程没有不舒服的地方，感觉很放松，下次还会再来。",
+  "不管是服务还是环境都比较满意，值得推荐给朋友。",
+  "整体体验比较自然舒服，价格也合理，满意度很高。",
+  "细节处理得不错，体验完成以后感觉确实挺值得。",
+  "整体氛围很好，适合放松，也适合朋友一起过来。",
+  "以后有机会还会再来，也会推荐身边朋友体验一下。",
+  "这次体验超出预期，整体感觉比较安心，也比较舒服。",
+  "整体没有踩雷，服务和环境都挺满意，下次还会选择这里。",
+  "体验结束以后感觉挺放松，整体印象很好，值得再来。",
+  "整体来说比较满意，适合日常放松，也适合朋友聚会。"
 ];
-
-const ends = [
-  "下次有机会还会再来，也会推荐朋友过来体验。",
-  "整体来说挺值得的，之后还会考虑再来。",
-  "不管是服务还是环境都比较满意，推荐大家试试。",
-  "这次体验比较舒服，整体满意度还是挺高的。",
-  "价格和体验匹配度不错，整体感觉比较划算。",
-  "如果附近有朋友需要，我也会愿意推荐这里。",
-  "整体没有踩雷，体验感比预期更好一些。",
-  "这次体验让我印象不错，下次还会继续选择这里。",
-  "整体感觉比较满意，适合朋友或者家人一起过来。",
-  "以后有机会还会再来，整体体验值得肯定。"
-];
-
-function randomItem(arr){
-  return arr[Math.floor(Math.random() * arr.length)];
-}
 
 function showQR(type){
   const config = QR_CONFIG[type];
@@ -184,33 +166,17 @@ function openWechat(){
 }
 
 function generateReview(keyword){
+  const middleArr = reviewParts[keyword];
 
-  let text = "";
+  const start = reviewStarts[Math.floor(Math.random() * reviewStarts.length)];
+  const middle1 = middleArr[Math.floor(Math.random() * middleArr.length)];
+  const middle2 = middleArr[Math.floor(Math.random() * middleArr.length)];
+  const middle3 = middleArr[Math.floor(Math.random() * middleArr.length)];
+  const end = reviewEnds[Math.floor(Math.random() * reviewEnds.length)];
 
-  for(let i = 0; i < 30; i++){
-
-    const words = reviewData[keyword];
-
-    text =
-      randomItem(starts) +
-      randomItem(words) + "，" +
-      randomItem(words) + "，" +
-      randomItem(details) +
-      randomItem(ends);
-
-    if(!recentReviews.includes(text)){
-      break;
-    }
-  }
-
-  recentReviews.push(text);
-
-  if(recentReviews.length > 50){
-    recentReviews.shift();
-  }
+  const text = start + middle1 + "，" + middle2 + "，" + middle3 + "，" + end;
 
   document.getElementById("reviewResult").textContent = text;
-
   copyText(text);
 }
 
