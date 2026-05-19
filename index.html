@@ -1,209 +1,228 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NFC 商家服务中心</title>
 
-  <style>
+<meta charset="UTF-8">
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-    body{
-      background:#f5f6f8;
-      font-family:Arial,"Microsoft YaHei";
-      color:#222;
-    }
+<title>NFC 商家服务中心</title>
 
-    .container{
-      max-width:430px;
-      margin:auto;
-      padding:20px;
-    }
+<style>
 
-    .card{
-      background:#fff;
-      border-radius:22px;
-      padding:25px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .logo{
-      width:90px;
-      height:90px;
-      background:#111;
-      color:#fff;
-      border-radius:50%;
-      line-height:90px;
-      text-align:center;
-      margin:auto;
-      font-size:30px;
-      font-weight:bold;
-    }
+body{
+  background:#f5f6f8;
+  font-family:Arial,"Microsoft YaHei";
+  color:#222;
+}
 
-    h1{
-      text-align:center;
-      margin-top:18px;
-      font-size:28px;
-    }
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:20px;
+}
 
-    .desc{
-      text-align:center;
-      margin-top:8px;
-      margin-bottom:24px;
-      color:#666;
-      font-size:14px;
-    }
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:26px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
 
-    .review-box{
-      background:#f8f8f8;
-      border-radius:18px;
-      padding:18px;
-      margin-bottom:20px;
-    }
+.logo{
+  width:90px;
+  height:90px;
+  background:#111;
+  color:#fff;
+  border-radius:50%;
+  line-height:90px;
+  text-align:center;
+  margin:auto;
+  font-size:32px;
+  font-weight:bold;
+}
 
-    .review-title{
-      font-size:18px;
-      font-weight:bold;
-      margin-bottom:10px;
-    }
+h1{
+  text-align:center;
+  margin-top:18px;
+  font-size:28px;
+}
 
-    .review-tip{
-      color:#777;
-      font-size:13px;
-      margin-bottom:15px;
-      line-height:1.6;
-    }
+.desc{
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:24px;
+  color:#666;
+  font-size:14px;
+}
 
-    .keywords{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
+.review-box{
+  background:#f8f8f8;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:22px;
+}
 
-    .tag{
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:30px;
-      padding:10px 14px;
-      cursor:pointer;
-      transition:0.3s;
-      font-size:14px;
-    }
+.review-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
-    .tag:hover{
-      background:#111;
-      color:#fff;
-    }
+.review-tip{
+  color:#777;
+  font-size:13px;
+  margin-bottom:16px;
+  line-height:1.6;
+}
 
-    .review-result{
-      margin-top:18px;
-      background:#fff;
-      border-radius:14px;
-      padding:16px;
-      min-height:140px;
-      border:1px solid #eee;
-      line-height:1.9;
-      font-size:15px;
-      color:#333;
-      white-space:pre-wrap;
-    }
+.keywords{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
-    .copy-btn{
-      width:100%;
-      padding:15px;
-      border:none;
-      background:#111;
-      color:#fff;
-      border-radius:14px;
-      margin-top:15px;
-      font-size:16px;
-      cursor:pointer;
-    }
+.tag{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:30px;
+  padding:10px 14px;
+  cursor:pointer;
+  transition:0.25s;
+  font-size:14px;
+}
 
-    .btn{
-      display:block;
-      width:100%;
-      text-decoration:none;
-      text-align:center;
-      color:#fff;
-      padding:16px;
-      border-radius:14px;
-      margin-top:14px;
-      font-size:17px;
-      font-weight:bold;
-      border:none;
-      cursor:pointer;
-    }
+.tag:hover{
+  background:#111;
+  color:#fff;
+}
 
-    .ctrip{
-      background:#007aff;
-    }
+.review-result{
+  margin-top:18px;
+  background:#fff;
+  border-radius:14px;
+  padding:16px;
+  min-height:220px;
+  border:1px solid #eee;
+  line-height:1.9;
+  font-size:15px;
+  color:#333;
+  white-space:pre-wrap;
+}
 
-    .meituan{
-      background:#ffcc00;
-      color:#111;
-    }
+.copy-btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:14px;
+  margin-top:15px;
+  font-size:16px;
+  cursor:pointer;
+}
 
-    .dianping{
-      background:#ff6a00;
-    }
+.btn{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  text-align:center;
+  color:#fff;
+  padding:16px;
+  border-radius:14px;
+  margin-top:14px;
+  font-size:17px;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-    .wechat{
-      background:#07c160;
-    }
+.btn:active{
+  transform:scale(0.98);
+}
 
-    .footer{
-      text-align:center;
-      margin-top:24px;
-      color:#999;
-      font-size:12px;
-    }
+.ctrip{
+  background:#007aff;
+}
 
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:999;
-      left:0;
-      top:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.55);
-    }
+.meituan{
+  background:#ffcc00;
+  color:#111;
+}
 
-    .modal-content{
-      background:#fff;
-      width:85%;
-      max-width:330px;
-      margin:120px auto;
-      padding:25px;
-      border-radius:18px;
-      text-align:center;
-      position:relative;
-    }
+.wechat{
+  background:#07c160;
+}
 
-    .close{
-      position:absolute;
-      right:18px;
-      top:10px;
-      font-size:30px;
-      cursor:pointer;
-    }
+.footer{
+  text-align:center;
+  margin-top:24px;
+  color:#999;
+  font-size:12px;
+}
 
-    .wechat-qr{
-      width:220px;
-      height:220px;
-      margin:18px auto;
-      display:block;
-      border-radius:12px;
-    }
+.modal{
+  display:none;
+  position:fixed;
+  z-index:999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
 
-  </style>
+.modal-content{
+  background:#fff;
+  width:85%;
+  max-width:330px;
+  margin:120px auto;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:10px;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.wechat-qr{
+  width:220px;
+  height:220px;
+  margin:18px auto;
+  display:block;
+  border-radius:12px;
+}
+
+.toast{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.82);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:14px;
+  z-index:9999;
+}
+
+</style>
 
 </head>
 
@@ -211,273 +230,475 @@
 
 <div class="container">
 
-  <div class="card">
+<div class="card">
 
-    <div class="logo">店</div>
+<div class="logo">店</div>
 
-    <h1>商家服务中心</h1>
+<h1>商家服务中心</h1>
 
-    <div class="desc">
-      欢迎光临 · 感谢您的支持 ❤️
-    </div>
+<div class="desc">
+欢迎光临 · 感谢您的支持 ❤️
+</div>
 
-    <div class="review-box">
+<div class="review-box">
 
-      <div class="review-title">
-        ⭐ AI随机评价
-      </div>
+<div class="review-title">
+⭐ AI随机评价
+</div>
 
-      <div class="review-tip">
-        点击关键词自动生成随机长评价，并自动复制
-      </div>
+<div class="review-tip">
+点击关键词自动生成随机长评价，并自动复制
+</div>
 
-      <div class="keywords">
+<div class="keywords">
 
-        <div class="tag" onclick="generateReview('服务很好')">
-          服务很好
-        </div>
+<div class="tag"
+onclick="generateReview('服务很好')">
+服务很好
+</div>
 
-        <div class="tag" onclick="generateReview('环境不错')">
-          环境不错
-        </div>
+<div class="tag"
+onclick="generateReview('环境不错')">
+环境不错
+</div>
 
-        <div class="tag" onclick="generateReview('性价比高')">
-          性价比高
-        </div>
+<div class="tag"
+onclick="generateReview('性价比高')">
+性价比高
+</div>
 
-        <div class="tag" onclick="generateReview('非常推荐')">
-          非常推荐
-        </div>
+<div class="tag"
+onclick="generateReview('非常推荐')">
+非常推荐
+</div>
 
-        <div class="tag" onclick="generateReview('干净卫生')">
-          干净卫生
-        </div>
+<div class="tag"
+onclick="generateReview('干净卫生')">
+干净卫生
+</div>
 
-        <div class="tag" onclick="generateReview('前台热情')">
-          前台热情
-        </div>
+<div class="tag"
+onclick="generateReview('前台热情')">
+前台热情
+</div>
 
-        <div class="tag" onclick="generateReview('体验很好')">
-          体验很好
-        </div>
+<div class="tag"
+onclick="generateReview('体验很好')">
+体验很好
+</div>
 
-        <div class="tag" onclick="generateReview('交通方便')">
-          交通方便
-        </div>
+<div class="tag"
+onclick="generateReview('交通方便')">
+交通方便
+</div>
 
-        <div class="tag" onclick="generateReview('朋友聚会')">
-          朋友聚会
-        </div>
-
-        <div class="tag" onclick="generateReview('情侣约会')">
-          情侣约会
-        </div>
-
-      </div>
-
-      <div class="review-result" id="reviewResult">
-        点击关键词生成随机评价...
-      </div>
-
-      <button class="copy-btn" onclick="copyReview()">
-        一键复制评价
-      </button>
-
-    </div>
-
-    <a class="btn ctrip"
-       href="https://www.ctrip.com/"
-       target="_blank">
-       ✈️ 打开携程
-    </a>
-
-    <a class="btn meituan"
-       href="https://www.meituan.com/"
-       target="_blank">
-       🟡 打开美团
-    </a>
-
-    <a class="btn dianping"
-       href="https://www.dianping.com/"
-       target="_blank">
-       ⭐ 打开大众点评
-    </a>
-
-    <button class="btn wechat"
-            onclick="showWechatQR()">
-            📱 添加前台微信
-    </button>
-
-    <div class="footer">
-      NFC 碰一碰智慧营销系统
-    </div>
-
-  </div>
+<div class="tag"
+onclick="generateReview('朋友聚会')">
+朋友聚会
+</div>
 
 </div>
 
-<div id="wechatModal" class="modal">
+<div class="review-result"
+id="reviewResult">
 
-  <div class="modal-content">
+点击关键词生成随机长评价...
 
-    <span class="close"
-          onclick="closeWechatQR()">
-          ×
-    </span>
+</div>
 
-    <h3>扫码添加前台微信</h3>
+<button class="copy-btn"
+onclick="copyReview()">
 
-    <img src="wechat-qr.png"
-         class="wechat-qr"
-         alt="前台微信二维码">
+一键复制评价
 
-    <p>长按识别二维码添加微信</p>
+</button>
 
-  </div>
+</div>
+
+<!-- 携程 -->
+
+<button class="btn ctrip"
+onclick="openCtripMiniProgram()">
+
+✈️ 打开携程订酒店
+
+</button>
+
+<!-- 美团 -->
+
+<button class="btn meituan"
+onclick="openMeituanMiniProgram()">
+
+🟡 打开美团酒店
+
+</button>
+
+<!-- 微信 -->
+
+<button class="btn wechat"
+onclick="showWechatQR()">
+
+📱 添加前台微信
+
+</button>
+
+<div class="footer">
+NFC 碰一碰智慧营销系统
+</div>
+
+</div>
+
+</div>
+
+<!-- 微信二维码 -->
+
+<div id="wechatModal"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeWechatQR()">
+
+×
+
+</span>
+
+<h3>扫码添加前台微信</h3>
+
+<img src="wechat-qr.png"
+class="wechat-qr"
+alt="前台微信二维码">
+
+<p>
+长按识别二维码添加微信
+</p>
+
+</div>
 
 </div>
 
 <script>
 
+/*
+========================================
+9个关键词 × 随机评价
+========================================
+*/
+
 const reviews = {
 
-  "服务很好": {
+"服务很好":[
+"工作人员特别热情，整体体验非常舒服，整个流程安排得很顺畅，让人感觉很放松，下次还会再来。",
+"从进门开始接待就特别专业，而且服务态度很好，整个体验过程很轻松舒服。",
+"整体服务体验超出预期，工作人员很耐心，而且很多细节都做得很好。",
+"第一次过来体验，整体感觉真的很不错，服务特别到位，体验感很强。",
+"今天和朋友一起过来，工作人员特别热情，整个过程体验非常满意。",
+"整体服务非常专业，而且接待过程很舒服，让人感觉特别放松。",
+"服务态度真的很好，整个流程安排合理，没有等待太久，体验感很棒。",
+"工作人员特别有耐心，很多细节都处理得很好，整体感觉非常满意。",
+"之前看评价觉得不错，实际体验下来比想象中还好，非常推荐。",
+"整体体验很舒服，服务很细心，下次一定还会带朋友过来。"
+],
 
-    start:[
-      "第一次来这边体验，",
-      "今天和朋友一起过来，",
-      "整体感觉真的不错，",
-      "体验结束以后，",
-      "朋友推荐我来的，"
-    ],
+"环境不错":[
+"店里的整体环境非常舒服，装修风格很好看，而且卫生做得特别到位。",
+"刚进门的时候就感觉氛围很好，整体空间特别舒服，很适合放松。",
+"环境非常干净整洁，很多细节都做得很好，整体体验感很强。",
+"店里的装修风格很高级，而且灯光氛围感特别舒服，非常适合拍照。",
+"整体环境真的很加分，卫生很好，而且空间氛围让人感觉特别放松。",
+"第一次来这里，整体环境超出预期，很安静很舒服，体验感很好。",
+"店里环境特别舒服，而且卫生做得非常不错，让人感觉很安心。",
+"整体装修风格很喜欢，氛围感特别好，下次还会再过来。",
+"环境非常不错，而且细节做得很好，整体体验下来特别满意。",
+"朋友也觉得这里环境很好，整体感觉特别舒服，很适合聚会放松。"
+],
 
-    middle:[
-      "工作人员服务特别热情，整个过程体验很好。",
-      "从进门开始接待就很专业，让人感觉很舒服。",
-      "服务细节做得很好，整体体验感非常不错。",
-      "工作人员很耐心，流程也特别顺畅。",
-      "服务态度真的很好，体验超出预期。"
-    ],
+"性价比高":[
+"整体体验结束以后感觉特别值，这个价格能有这样的服务真的很不错。",
+"价格很合理，而且整体服务和环境都很好，性价比真的很高。",
+"本来只是想试试看，结果体验感完全超出预期，真的特别值。",
+"整体品质和服务都很好，而且价格不贵，非常推荐大家体验。",
+"这个价格能有这样的环境和服务，整体来说真的很划算。",
+"之前对比了很多地方，最后选择这里，实际体验下来非常满意。",
+"整体体验感特别不错，而且价格合理，完全超出预期。",
+"服务和环境都很在线，而且价格很合适，下次还会继续来。",
+"体验结束以后最大的感觉就是很值，整体满意度特别高。",
+"性价比真的很高，不管是服务还是环境都特别满意。"
+],
 
-    end:[
-      "以后还会再来。",
-      "推荐大家过来体验一下。",
-      "整体还是很满意的。",
-      "下次会带朋友一起来。",
-      "感觉这次来得很值。"
-    ]
+"非常推荐":[
+"整体体验真的特别满意，不管是服务还是环境都很好，非常推荐。",
+"第一次来这里，体验感比想象中还好，下次一定还会再来。",
+"工作人员特别热情，而且整体环境很舒服，推荐大家体验一下。",
+"整体氛围特别好，很多细节都做得很到位，非常满意。",
+"今天和朋友一起过来，大家都觉得这里很不错，非常值得推荐。",
+"之前朋友推荐我来的，实际体验下来确实很满意，体验感很好。",
+"整体服务和环境都非常不错，而且工作人员特别专业。",
+"体验结束以后感觉特别舒服，整体满意度很高，非常推荐。",
+"环境、服务、氛围都特别在线，体验下来真的超出预期。",
+"整体感觉非常不错，下次还会继续过来，也会推荐给朋友。"
+],
 
-  },
+"干净卫生":[
+"整体卫生做得特别到位，很多细节都很干净，让人感觉特别舒服。",
+"店里的环境非常整洁，而且卫生细节处理得很好，体验感不错。",
+"刚进门的时候就感觉环境很干净，整体氛围让人特别安心。",
+"卫生真的做得很好，而且整体空间很舒服，体验过程特别放松。",
+"环境干净整洁，很多地方都能看出来很用心，整体满意度很高。",
+"第一次来这里，卫生情况比预想中还要好，整体感觉特别舒服。",
+"整体卫生环境很不错，而且空气和氛围感也很好，非常满意。",
+"很多细节都处理得特别干净，让人感觉很安心，下次还会再来。",
+"店里卫生真的很好，而且整体体验过程非常舒服。",
+"整体环境干净舒服，体验下来感觉特别满意，非常推荐。"
+],
 
-  "环境不错": {
+"前台热情":[
+"前台小姐姐特别热情，接待过程很舒服，整体体验非常满意。",
+"工作人员态度特别好，而且很有耐心，整个过程沟通很轻松。",
+"从进门开始接待就很专业，而且前台服务特别热情。",
+"整体接待体验很舒服，工作人员态度很好，给人感觉特别亲切。",
+"前台服务真的特别好，而且很多问题都会耐心解答。",
+"第一次过来体验，接待过程非常顺畅，而且工作人员特别热情。",
+"整体服务态度很不错，工作人员沟通起来特别舒服。",
+"前台很有耐心，而且整个流程安排得很合理，体验感很好。",
+"工作人员特别细心，接待过程让人感觉非常舒服。",
+"整体服务体验很好，而且前台接待非常专业，非常满意。"
+],
 
-    start:[
-      "店里的整体环境很好，",
-      "刚进门的时候，",
-      "整体装修风格很舒服，",
-      "第一次来感觉环境很加分，"
-    ],
+"体验很好":[
+"整体体验感特别不错，整个过程很轻松舒服，下次还会再来。",
+"今天体验结束以后感觉特别满意，很多细节都做得很好。",
+"整体氛围很好，而且服务也特别在线，体验感很强。",
+"第一次来这里，整体感觉比预想中还要好，非常满意。",
+"整个过程安排得很顺畅，而且体验下来特别舒服。",
+"整体服务和环境都很好，体验感非常不错，非常推荐。",
+"今天和朋友一起过来，大家整体体验感都特别满意。",
+"体验过程很轻松，而且工作人员也特别专业，感觉很不错。",
+"整体感觉真的很好，很多地方都能看出来特别用心。",
+"体验结束以后满意度特别高，下次还会继续过来。"
+],
 
-    middle:[
-      "装修风格很高级，拍照也很好看。",
-      "整体环境干净整洁，让人感觉很舒服。",
-      "店内氛围特别好，很适合放松。",
-      "卫生做得特别到位，细节很好。"
-    ],
+"交通方便":[
+"位置很好找，而且交通特别方便，整体体验感不错。",
+"停车很方便，整体出行很轻松，下次还会再过来。",
+"店里的位置很好找，附近交通也特别方便，非常满意。",
+"第一次来这里，导航特别容易找到，而且停车也方便。",
+"整体交通真的很方便，而且周边位置很好找。",
+"过来特别轻松，没有绕路，整体体验感非常不错。",
+"位置很明显，而且交通很便利，朋友也觉得特别方便。",
+"整体出行体验很好，附近停车也比较方便，非常满意。",
+"店里的位置特别好找，而且交通很顺畅，体验不错。",
+"整体来说交通很方便，下次还会继续过来体验。"
+],
 
-    end:[
-      "很适合朋友一起来。",
-      "以后还会再来体验。",
-      "推荐大家过来看看。",
-      "体验感真的很好。"
-    ]
-
-  },
-
-  "性价比高": {
-
-    start:[
-      "本来只是随便试试看，",
-      "体验完以后感觉，",
-      "整体来说还是挺满意的，",
-      "这个价格能有这样的体验，"
-    ],
-
-    middle:[
-      "价格很合理，整体体验超出预期。",
-      "服务和品质都很不错，性价比很高。",
-      "整体价格不贵，但是体验很好。",
-      "花这个价格能有这种体验真的挺值。"
-    ],
-
-    end:[
-      "以后会经常过来。",
-      "推荐大家体验一下。",
-      "下次还会再来。",
-      "整体还是很满意的。"
-    ]
-
-  }
+"朋友聚会":[
+"今天和朋友一起过来，整体氛围特别好，很适合聚会聊天。",
+"整体环境很舒服，而且特别适合朋友一起放松，非常满意。",
+"朋友们体验完以后都觉得这里很不错，下次还会再来。",
+"整体氛围特别适合聚会，大家体验感都很好，非常推荐。",
+"今天一起过来的朋友都觉得环境和服务特别不错。",
+"整体感觉很适合多人聚会，而且氛围感特别舒服。",
+"店里的环境特别适合朋友一起聊天放松，体验很好。",
+"整体体验非常满意，朋友们都说下次还会继续来。",
+"今天聚会选这里真的很不错，整体体验感很强。",
+"环境、服务、氛围都特别适合朋友聚会，非常推荐。"
+]
 
 };
 
+/*
+========================================
+随机评价
+========================================
+*/
+
 function generateReview(keyword){
 
-  const resultBox =
-  document.getElementById("reviewResult");
+const resultBox =
+document.getElementById(
+"reviewResult"
+);
 
-  const data = reviews[keyword];
+const arr = reviews[keyword];
 
-  const start =
-  data.start[Math.floor(Math.random()*data.start.length)];
+const text =
+arr[Math.floor(Math.random()*arr.length)];
 
-  const middle1 =
-  data.middle[Math.floor(Math.random()*data.middle.length)];
+resultBox.textContent = text;
 
-  const middle2 =
-  data.middle[Math.floor(Math.random()*data.middle.length)];
-
-  const end =
-  data.end[Math.floor(Math.random()*data.end.length)];
-
-  const finalText =
-  start + middle1 + middle2 + end;
-
-  resultBox.innerHTML = finalText;
-
-  navigator.clipboard.writeText(finalText);
-
-  alert("随机评价已自动复制");
+copyText(text);
 
 }
+
+/*
+========================================
+复制
+========================================
+*/
 
 function copyReview(){
 
-  const text =
-  document.getElementById("reviewResult").innerText;
+const text =
+document.getElementById(
+"reviewResult"
+).innerText;
 
-  navigator.clipboard.writeText(text);
-
-  alert("评价已复制");
+copyText(text);
 
 }
 
+function copyText(text){
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(text)
+.then(()=>{
+showToast("评价已复制");
+});
+
+}else{
+
+fallbackCopy(text);
+
+}
+
+}
+
+function fallbackCopy(text){
+
+const textarea =
+document.createElement("textarea");
+
+textarea.value = text;
+
+document.body.appendChild(textarea);
+
+textarea.select();
+
+document.execCommand("copy");
+
+document.body.removeChild(textarea);
+
+showToast("评价已复制");
+
+}
+
+/*
+========================================
+Toast
+========================================
+*/
+
+function showToast(message){
+
+const toast =
+document.createElement("div");
+
+toast.className = "toast";
+
+toast.innerText = message;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+toast.remove();
+},1800);
+
+}
+
+/*
+========================================
+携程
+========================================
+*/
+
+function openCtripMiniProgram(){
+
+const text =
+"#小程序://携程旅行订酒店机票火车汽车门票/yXuQSo251pllemC";
+
+copyText(text);
+
+showToast(
+"携程口令已复制，即将打开微信"
+);
+
+setTimeout(()=>{
+
+window.location.href =
+"weixin://";
+
+},1000);
+
+}
+
+/*
+========================================
+美团
+========================================
+*/
+
+function openMeituanMiniProgram(){
+
+const text =
+"#小程序://美团酒店+/04wsc2evoQSqWic";
+
+copyText(text);
+
+showToast(
+"美团口令已复制，即将打开微信"
+);
+
+setTimeout(()=>{
+
+window.location.href =
+"weixin://";
+
+},1000);
+
+}
+
+/*
+========================================
+微信二维码
+========================================
+*/
+
 function showWechatQR(){
 
-  document.getElementById("wechatModal").style.display =
-  "block";
+document.getElementById(
+"wechatModal"
+).style.display = "block";
 
 }
 
 function closeWechatQR(){
 
-  document.getElementById("wechatModal").style.display =
-  "none";
+document.getElementById(
+"wechatModal"
+).style.display = "none";
 
 }
+
+window.onclick = function(event){
+
+const modal =
+document.getElementById(
+"wechatModal"
+);
+
+if(event.target === modal){
+
+closeWechatQR();
+
+}
+
+};
 
 </script>
 
 </body>
 
 </html>
+```
