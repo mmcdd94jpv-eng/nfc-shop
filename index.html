@@ -1,256 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NFC 商家服务中心</title>
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background:#f5f6f8;
-  font-family:Arial,"Microsoft YaHei";
-  color:#222;
-}
-
-.container{
-  max-width:430px;
-  margin:auto;
-  padding:20px;
-}
-
-.card{
-  background:#fff;
-  border-radius:24px;
-  padding:26px;
-  box-shadow:0 10px 35px rgba(0,0,0,0.08);
-}
-
-.logo{
-  width:90px;
-  height:90px;
-  background:#111;
-  color:#fff;
-  border-radius:50%;
-  line-height:90px;
-  text-align:center;
-  margin:auto;
-  font-size:32px;
-  font-weight:bold;
-}
-
-h1{
-  text-align:center;
-  margin-top:18px;
-  font-size:28px;
-}
-
-.desc{
-  text-align:center;
-  margin-top:10px;
-  margin-bottom:24px;
-  color:#666;
-  font-size:14px;
-}
-
-.review-box{
-  background:#f8f8f8;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:22px;
-}
-
-.review-title{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.review-tip{
-  color:#777;
-  font-size:13px;
-  margin-bottom:16px;
-  line-height:1.6;
-}
-
-.keywords{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.tag{
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:30px;
-  padding:10px 14px;
-  cursor:pointer;
-  transition:0.25s;
-  font-size:14px;
-}
-
-.tag:hover{
-  background:#111;
-  color:#fff;
-}
-
-.review-result{
-  margin-top:18px;
-  background:#fff;
-  border-radius:14px;
-  padding:16px;
-  min-height:220px;
-  border:1px solid #eee;
-  line-height:1.9;
-  font-size:15px;
-  color:#333;
-  white-space:pre-wrap;
-}
-
-.copy-btn{
-  width:100%;
-  padding:15px;
-  border:none;
-  background:#111;
-  color:#fff;
-  border-radius:14px;
-  margin-top:15px;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  text-decoration:none;
-  text-align:center;
-  color:#fff;
-  padding:16px;
-  border-radius:14px;
-  margin-top:14px;
-  font-size:17px;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.btn:active{
-  transform:scale(0.98);
-}
-
-.ctrip{
-  background:#007aff;
-}
-
-.meituan{
-  background:#ffcc00;
-  color:#111;
-}
-
-.wechat{
-  background:#07c160;
-}
-
-.footer{
-  text-align:center;
-  margin-top:24px;
-  color:#999;
-  font-size:12px;
-}
-
-.modal{
-  display:none;
-  position:fixed;
-  z-index:999;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.55);
-}
-
-.modal-content{
-  background:#fff;
-  width:85%;
-  max-width:330px;
-  margin:120px auto;
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-  position:relative;
-}
-
-.close{
-  position:absolute;
-  right:18px;
-  top:10px;
-  font-size:30px;
-  cursor:pointer;
-}
-
-.wechat-qr{
-  width:220px;
-  height:220px;
-  margin:18px auto;
-  display:block;
-  border-radius:12px;
-}
-
-.toast{
-  position:fixed;
-  bottom:90px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,0.82);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:30px;
-  font-size:14px;
-  z-index:9999;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f5f6f8;font-family:Arial,"Microsoft YaHei";color:#222;}
+.container{max-width:430px;margin:auto;padding:20px;}
+.card{background:#fff;border-radius:24px;padding:26px;box-shadow:0 10px 35px rgba(0,0,0,0.08);}
+.logo{width:90px;height:90px;background:#111;color:#fff;border-radius:50%;line-height:90px;text-align:center;margin:auto;font-size:32px;font-weight:bold;}
+h1{text-align:center;margin-top:18px;font-size:28px;}
+.desc{text-align:center;margin-top:10px;margin-bottom:24px;color:#666;font-size:14px;}
+.review-box{background:#f8f8f8;border-radius:18px;padding:18px;margin-bottom:22px;}
+.review-title{font-size:18px;font-weight:bold;margin-bottom:10px;}
+.review-tip{color:#777;font-size:13px;margin-bottom:16px;line-height:1.6;}
+.keywords{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{background:#fff;border:1px solid #ddd;border-radius:30px;padding:10px 14px;cursor:pointer;font-size:14px;}
+.tag:hover{background:#111;color:#fff;}
+.review-result{margin-top:18px;background:#fff;border-radius:14px;padding:16px;min-height:220px;border:1px solid #eee;line-height:1.9;font-size:15px;color:#333;white-space:pre-wrap;}
+.copy-btn{width:100%;padding:15px;border:none;background:#111;color:#fff;border-radius:14px;margin-top:15px;font-size:16px;cursor:pointer;}
+.btn{display:block;width:100%;text-align:center;color:#fff;padding:16px;border-radius:14px;margin-top:14px;font-size:17px;font-weight:bold;border:none;cursor:pointer;}
+.btn:active{transform:scale(0.98);}
+.ctrip{background:#007aff;}
+.meituan{background:#ffcc00;color:#111;}
+.wechat{background:#07c160;}
+.footer{text-align:center;margin-top:24px;color:#999;font-size:12px;}
+.modal{display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
+.modal-content{background:#fff;width:88%;max-width:360px;margin:80px auto;padding:22px;border-radius:18px;text-align:center;position:relative;}
+.close{position:absolute;right:18px;top:10px;font-size:30px;cursor:pointer;}
+.qr-img{width:100%;max-width:280px;margin:18px auto;display:block;border-radius:12px;}
+.modal-tip{font-size:14px;color:#666;line-height:1.7;}
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.82);color:#fff;padding:12px 18px;border-radius:30px;font-size:14px;z-index:9999;}
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
-
 <div class="card">
 
 <div class="logo">店</div>
-
 <h1>商家服务中心</h1>
-
-<div class="desc">
-欢迎光临 · 感谢您的支持 ❤️
-</div>
+<div class="desc">欢迎光临 · 感谢您的支持 ❤️</div>
 
 <div class="review-box">
-
-<div class="review-title">
-⭐ AI随机评价
-</div>
-
-<div class="review-tip">
-点击关键词自动生成随机长评价，并自动复制
-</div>
+<div class="review-title">⭐ AI随机评价</div>
+<div class="review-tip">点击关键词自动生成随机长评价，并自动复制</div>
 
 <div class="keywords">
-
 <div class="tag" onclick="generateReview('服务很好')">服务很好</div>
 <div class="tag" onclick="generateReview('环境不错')">环境不错</div>
 <div class="tag" onclick="generateReview('性价比高')">性价比高</div>
@@ -260,98 +59,58 @@ h1{
 <div class="tag" onclick="generateReview('体验很好')">体验很好</div>
 <div class="tag" onclick="generateReview('交通方便')">交通方便</div>
 <div class="tag" onclick="generateReview('朋友聚会')">朋友聚会</div>
-
 </div>
 
-<div class="review-result"
-id="reviewResult">
+<div class="review-result" id="reviewResult">点击关键词生成随机长评价...</div>
 
-点击关键词生成随机长评价...
-
+<button class="copy-btn" onclick="copyReview()">一键复制评价</button>
 </div>
 
-<button class="copy-btn"
-onclick="copyReview()">
+<button class="btn ctrip" onclick="showQR('ctrip')">✈️ 携程订酒店</button>
 
-一键复制评价
+<button class="btn meituan" onclick="showQR('meituan')">🟡 美团订酒店</button>
 
-</button>
+<button class="btn wechat" onclick="showQR('wechat')">📱 添加前台微信</button>
 
-</div>
-
-<!-- 携程 -->
-
-<button class="btn ctrip"
-onclick="openCtripMiniProgram()">
-
-✈️ 打开携程订酒店
-
-</button>
-
-<!-- 美团 -->
-
-<button class="btn meituan"
-onclick="openMeituanMiniProgram()">
-
-🟡 打开美团酒店
-
-</button>
-
-<!-- 微信 -->
-
-<button class="btn wechat"
-onclick="showWechatQR()">
-
-📱 添加前台微信
-
-</button>
-
-<div class="footer">
-NFC 碰一碰智慧营销系统
-</div>
+<div class="footer">NFC 碰一碰智慧营销系统</div>
 
 </div>
-
 </div>
 
-<!-- 微信二维码 -->
-
-<div id="wechatModal"
-class="modal">
-
+<div id="qrModal" class="modal">
 <div class="modal-content">
 
-<span class="close"
-onclick="closeWechatQR()">
+<span class="close" onclick="closeQR()">×</span>
 
-×
+<h3 id="qrTitle">扫码识别</h3>
 
-</span>
+<img id="qrImage" src="wechat-qr.png" class="qr-img" alt="二维码">
 
-<h3>扫码添加前台微信</h3>
-
-<img src="wechat-qr.png"
-class="wechat-qr"
-alt="前台微信二维码">
-
-<p>
-长按识别二维码添加微信
-</p>
+<p id="qrText" class="modal-tip">长按识别二维码</p>
 
 </div>
-
 </div>
 
 <script>
-
-/*
-========================================
-9个关键词 × 每个10条评价
-========================================
-*/
+const QR_CONFIG = {
+  ctrip: {
+    title: "长按识别携程订房码",
+    image: "ctrip-qr.jpg",
+    text: "长按识别二维码，进入携程酒店订房"
+  },
+  meituan: {
+    title: "长按识别美团订房码",
+    image: "meituan-qr.jpg",
+    text: "长按识别二维码，进入美团酒店订房"
+  },
+  wechat: {
+    title: "扫码添加前台微信",
+    image: "wechat-qr.png",
+    text: "长按识别二维码添加前台微信"
+  }
+};
 
 const reviews = {
-
 "服务很好":[
 "工作人员特别热情，整体体验非常舒服，整个流程安排得很顺畅，让人感觉很放松，下次还会再来。",
 "从进门开始接待就特别专业，而且服务态度很好，整个体验过程很轻松舒服。",
@@ -364,7 +123,6 @@ const reviews = {
 "之前看评价觉得不错，实际体验下来比想象中还好，非常推荐。",
 "整体体验很舒服，服务很细心，下次一定还会带朋友过来。"
 ],
-
 "环境不错":[
 "店里的整体环境非常舒服，装修风格很好看，而且卫生做得特别到位。",
 "刚进门的时候就感觉氛围很好，整体空间特别舒服，很适合放松。",
@@ -377,7 +135,6 @@ const reviews = {
 "环境非常不错，而且细节做得很好，整体体验下来特别满意。",
 "朋友也觉得这里环境很好，整体感觉特别舒服，很适合聚会放松。"
 ],
-
 "性价比高":[
 "整体体验结束以后感觉特别值，这个价格能有这样的服务真的很不错。",
 "价格很合理，而且整体服务和环境都很好，性价比真的很高。",
@@ -390,7 +147,6 @@ const reviews = {
 "体验结束以后最大的感觉就是很值，整体满意度特别高。",
 "性价比真的很高，不管是服务还是环境都特别满意。"
 ],
-
 "非常推荐":[
 "整体体验真的特别满意，不管是服务还是环境都很好，非常推荐。",
 "第一次来这里，体验感比想象中还好，下次一定还会再来。",
@@ -403,7 +159,6 @@ const reviews = {
 "环境、服务、氛围都特别在线，体验下来真的超出预期。",
 "整体感觉非常不错，下次还会继续过来，也会推荐给朋友。"
 ],
-
 "干净卫生":[
 "整体卫生做得特别到位，很多细节都很干净，让人感觉特别舒服。",
 "店里的环境非常整洁，而且卫生细节处理得很好，体验感不错。",
@@ -416,7 +171,6 @@ const reviews = {
 "店里卫生真的很好，而且整体体验过程非常舒服。",
 "整体环境干净舒服，体验下来感觉特别满意，非常推荐。"
 ],
-
 "前台热情":[
 "前台小姐姐特别热情，接待过程很舒服，整体体验非常满意。",
 "工作人员态度特别好，而且很有耐心，整个过程沟通很轻松。",
@@ -429,7 +183,6 @@ const reviews = {
 "工作人员特别细心，接待过程让人感觉非常舒服。",
 "整体服务体验很好，而且前台接待非常专业，非常满意。"
 ],
-
 "体验很好":[
 "整体体验感特别不错，整个过程很轻松舒服，下次还会再来。",
 "今天体验结束以后感觉特别满意，很多细节都做得很好。",
@@ -442,7 +195,6 @@ const reviews = {
 "整体感觉真的很好，很多地方都能看出来特别用心。",
 "体验结束以后满意度特别高，下次还会继续过来。"
 ],
-
 "交通方便":[
 "位置很好找，而且交通特别方便，整体体验感不错。",
 "停车很方便，整体出行很轻松，下次还会再过来。",
@@ -455,7 +207,6 @@ const reviews = {
 "店里的位置特别好找，而且交通很顺畅，体验不错。",
 "整体来说交通很方便，下次还会继续过来体验。"
 ],
-
 "朋友聚会":[
 "今天和朋友一起过来，整体氛围特别好，很适合聚会聊天。",
 "整体环境很舒服，而且特别适合朋友一起放松，非常满意。",
@@ -468,200 +219,72 @@ const reviews = {
 "今天聚会选这里真的很不错，整体体验感很强。",
 "环境、服务、氛围都特别适合朋友聚会，非常推荐。"
 ]
-
 };
 
-/*
-========================================
-随机评价
-========================================
-*/
+function showQR(type){
+  const config = QR_CONFIG[type];
 
-function generateReview(keyword){
+  document.getElementById("qrTitle").innerText = config.title;
+  document.getElementById("qrImage").src = config.image;
+  document.getElementById("qrText").innerText = config.text;
 
-const resultBox =
-document.getElementById(
-"reviewResult"
-);
-
-const arr = reviews[keyword];
-
-const text =
-arr[Math.floor(Math.random()*arr.length)];
-
-resultBox.textContent = text;
-
-copyText(text);
-
+  document.getElementById("qrModal").style.display = "block";
 }
 
-/*
-========================================
-复制
-========================================
-*/
+function closeQR(){
+  document.getElementById("qrModal").style.display = "none";
+}
+
+function generateReview(keyword){
+  const arr = reviews[keyword];
+  const text = arr[Math.floor(Math.random() * arr.length)];
+  document.getElementById("reviewResult").textContent = text;
+  copyText(text);
+}
 
 function copyReview(){
-
-const text =
-document.getElementById(
-"reviewResult"
-).innerText;
-
-copyText(text);
-
+  const text = document.getElementById("reviewResult").innerText;
+  copyText(text);
 }
 
 function copyText(text){
-
-if(navigator.clipboard){
-
-navigator.clipboard.writeText(text)
-.then(()=>{
-showToast("评价已复制");
-});
-
-}else{
-
-fallbackCopy(text);
-
-}
-
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>{
+      showToast("评价已复制");
+    });
+  }else{
+    fallbackCopy(text);
+  }
 }
 
 function fallbackCopy(text){
-
-const textarea =
-document.createElement("textarea");
-
-textarea.value = text;
-
-document.body.appendChild(textarea);
-
-textarea.select();
-
-document.execCommand("copy");
-
-document.body.removeChild(textarea);
-
-showToast("评价已复制");
-
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  showToast("评价已复制");
 }
-
-/*
-========================================
-Toast
-========================================
-*/
 
 function showToast(message){
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.innerText = message;
+  document.body.appendChild(toast);
 
-const toast =
-document.createElement("div");
-
-toast.className = "toast";
-
-toast.innerText = message;
-
-document.body.appendChild(toast);
-
-setTimeout(()=>{
-toast.remove();
-},1800);
-
-}
-
-/*
-========================================
-携程
-========================================
-*/
-
-function openCtripMiniProgram(){
-
-const text =
-"#小程序://携程旅行订酒店机票火车汽车门票/yXuQSo251pllemC";
-
-copyText(text);
-
-showToast(
-"携程口令已复制，即将打开微信"
-);
-
-setTimeout(()=>{
-
-window.location.href =
-"weixin://";
-
-},1000);
-
-}
-
-/*
-========================================
-美团
-========================================
-*/
-
-function openMeituanMiniProgram(){
-
-const text =
-"#小程序://美团酒店+/04wsc2evoQSqWic";
-
-copyText(text);
-
-showToast(
-"美团口令已复制，即将打开微信"
-);
-
-setTimeout(()=>{
-
-window.location.href =
-"weixin://";
-
-},1000);
-
-}
-
-/*
-========================================
-微信二维码
-========================================
-*/
-
-function showWechatQR(){
-
-document.getElementById(
-"wechatModal"
-).style.display = "block";
-
-}
-
-function closeWechatQR(){
-
-document.getElementById(
-"wechatModal"
-).style.display = "none";
-
+  setTimeout(()=>{
+    toast.remove();
+  },1800);
 }
 
 window.onclick = function(event){
-
-const modal =
-document.getElementById(
-"wechatModal"
-);
-
-if(event.target === modal){
-
-closeWechatQR();
-
-}
-
+  const modal = document.getElementById("qrModal");
+  if(event.target === modal){
+    closeQR();
+  }
 };
-
 </script>
 
 </body>
-
 </html>
