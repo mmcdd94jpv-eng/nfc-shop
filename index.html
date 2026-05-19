@@ -22,10 +22,10 @@ h1{text-align:center;margin-top:18px;font-size:28px;}
 .review-result{margin-top:18px;background:#fff;border-radius:14px;padding:16px;min-height:220px;border:1px solid #eee;line-height:1.9;font-size:15px;color:#333;white-space:pre-wrap;}
 .copy-btn{width:100%;padding:15px;border:none;background:#111;color:#fff;border-radius:14px;margin-top:15px;font-size:16px;cursor:pointer;}
 .btn{display:block;width:100%;text-align:center;color:#fff;padding:16px;border-radius:14px;margin-top:14px;font-size:17px;font-weight:bold;border:none;cursor:pointer;}
-.btn:active{transform:scale(0.98);}
 .ctrip{background:#007aff;}
 .meituan{background:#ffcc00;color:#111;}
 .wechat{background:#07c160;}
+.openwx{background:#1aad19;}
 .footer{text-align:center;margin-top:24px;color:#999;font-size:12px;}
 .modal{display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
 .modal-content{background:#fff;width:88%;max-width:360px;margin:80px auto;padding:22px;border-radius:18px;text-align:center;position:relative;}
@@ -67,10 +67,9 @@ h1{text-align:center;margin-top:18px;font-size:28px;}
 </div>
 
 <button class="btn ctrip" onclick="showQR('ctrip')">✈️ 携程订酒店</button>
-
 <button class="btn meituan" onclick="showQR('meituan')">🟡 美团订酒店</button>
-
 <button class="btn wechat" onclick="showQR('wechat')">📱 添加前台微信</button>
+<button class="btn openwx" onclick="openWechat()">💬 打开微信</button>
 
 <div class="footer">NFC 碰一碰智慧营销系统</div>
 
@@ -94,19 +93,19 @@ h1{text-align:center;margin-top:18px;font-size:28px;}
 <script>
 const QR_CONFIG = {
   ctrip: {
-    title: "长按识别携程订房码",
+    title: "携程订房码",
     image: "ctrip-qr.jpg",
-    text: "长按识别二维码，进入携程酒店订房"
+    text: "请长按二维码图片，选择“识别图中二维码”进入携程订房"
   },
   meituan: {
-    title: "长按识别美团订房码",
+    title: "美团订房码",
     image: "meituan-qr.jpg",
-    text: "长按识别二维码，进入美团酒店订房"
+    text: "请长按二维码图片，选择“识别图中二维码”进入美团订房"
   },
   wechat: {
-    title: "扫码添加前台微信",
+    title: "添加前台微信",
     image: "wechat-qr.png",
-    text: "长按识别二维码添加前台微信"
+    text: "请长按二维码图片，选择“识别图中二维码”添加前台微信"
   }
 };
 
@@ -223,16 +222,18 @@ const reviews = {
 
 function showQR(type){
   const config = QR_CONFIG[type];
-
   document.getElementById("qrTitle").innerText = config.title;
   document.getElementById("qrImage").src = config.image;
   document.getElementById("qrText").innerText = config.text;
-
   document.getElementById("qrModal").style.display = "block";
 }
 
 function closeQR(){
   document.getElementById("qrModal").style.display = "none";
+}
+
+function openWechat(){
+  window.location.href = "weixin://";
 }
 
 function generateReview(keyword){
@@ -272,10 +273,7 @@ function showToast(message){
   toast.className = "toast";
   toast.innerText = message;
   document.body.appendChild(toast);
-
-  setTimeout(()=>{
-    toast.remove();
-  },1800);
+  setTimeout(()=>{toast.remove();},1800);
 }
 
 window.onclick = function(event){
