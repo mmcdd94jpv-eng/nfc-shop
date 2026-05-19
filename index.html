@@ -279,6 +279,8 @@ onclick="copyReview()">
 
 </div>
 
+<!-- 携程 -->
+
 <button class="btn ctrip"
 onclick="openCtripMiniProgram()">
 
@@ -286,12 +288,16 @@ onclick="openCtripMiniProgram()">
 
 </button>
 
+<!-- 美团 -->
+
 <button class="btn meituan"
 onclick="openMeituanMiniProgram()">
 
 🟡 打开美团酒店
 
 </button>
+
+<!-- 微信 -->
 
 <button class="btn wechat"
 onclick="showWechatQR()">
@@ -307,6 +313,8 @@ NFC 碰一碰智慧营销系统
 </div>
 
 </div>
+
+<!-- 微信二维码 -->
 
 <div id="wechatModal"
 class="modal">
@@ -335,6 +343,12 @@ alt="前台微信二维码">
 </div>
 
 <script>
+
+/*
+========================================
+9个关键词 × 每个10条评价
+========================================
+*/
 
 const reviews = {
 
@@ -457,6 +471,12 @@ const reviews = {
 
 };
 
+/*
+========================================
+随机评价
+========================================
+*/
+
 function generateReview(keyword){
 
 const resultBox =
@@ -474,6 +494,12 @@ resultBox.textContent = text;
 copyText(text);
 
 }
+
+/*
+========================================
+复制
+========================================
+*/
 
 function copyReview(){
 
@@ -522,6 +548,12 @@ showToast("评价已复制");
 
 }
 
+/*
+========================================
+Toast
+========================================
+*/
+
 function showToast(message){
 
 const toast =
@@ -539,31 +571,13 @@ toast.remove();
 
 }
 
-function openCtripMiniProgram(){
-
-const text =
-"#小程序://携程旅行订酒店机票火车汽车门票/SQHV6WBogktQVKc";
-
-copyText(text);
-
-showToast(
-"携程口令已复制，即将打开微信"
-);
+/*
+========================================
+携程
+========================================
+*/
 
 function openCtripMiniProgram(){
-
-const text =
-"#小程序://携程旅行订酒店机票火车汽车门票/SQHV6WBogktQVKc";
-
-copyText(text);
-
-showToast(
-"携程口令已复制，请打开微信聊天界面"
-);
-
-}
-
-}
 
 const text =
 "#小程序://携程旅行订酒店机票火车汽车门票/yXuQSo251pllemC";
@@ -583,10 +597,16 @@ window.location.href =
 
 }
 
+/*
+========================================
+美团
+========================================
+*/
+
 function openMeituanMiniProgram(){
 
 const text =
-"#小程序://美团酒店+/0HJeCNgXdnBVlQo";
+"#小程序://美团酒店+/04wsc2evoQSqWic";
 
 copyText(text);
 
@@ -603,29 +623,11 @@ window.location.href =
 
 }
 
-const text =
-"#小程序://美团酒店+/04wsc2evoQSqWic";
-
-copyText(text);
-
-showToast(
-"美团口令已复制，即将打开微信"
-);
-
-function openMeituanMiniProgram(){
-
-const text =
-"#小程序://美团酒店+/0HJeCNgXdnBVlQo";
-
-copyText(text);
-
-showToast(
-"美团口令已复制，请打开微信聊天界面"
-);
-
-}
-
-}
+/*
+========================================
+微信二维码
+========================================
+*/
 
 function showWechatQR(){
 
