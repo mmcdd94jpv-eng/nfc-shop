@@ -550,12 +550,18 @@ showToast(
 "携程口令已复制，即将打开微信"
 );
 
-setTimeout(()=>{
+function openCtripMiniProgram(){
 
-window.location.href =
-"weixin://";
+const text =
+"#小程序://携程旅行订酒店机票火车汽车门票/SQHV6WBogktQVKc";
 
-},1000);
+copyText(text);
+
+showToast(
+"携程口令已复制，请打开微信聊天界面"
+);
+
+}
 
 }
 
@@ -606,12 +612,18 @@ showToast(
 "美团口令已复制，即将打开微信"
 );
 
-setTimeout(()=>{
+function openMeituanMiniProgram(){
 
-window.location.href =
-"weixin://";
+const text =
+"#小程序://美团酒店+/0HJeCNgXdnBVlQo";
 
-},1000);
+copyText(text);
+
+showToast(
+"美团口令已复制，请打开微信聊天界面"
+);
+
+}
 
 }
 
