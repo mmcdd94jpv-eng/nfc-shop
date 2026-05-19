@@ -542,6 +542,24 @@ toast.remove();
 function openCtripMiniProgram(){
 
 const text =
+"#小程序://携程旅行订酒店机票火车汽车门票/SQHV6WBogktQVKc";
+
+copyText(text);
+
+showToast(
+"携程口令已复制，即将打开微信"
+);
+
+setTimeout(()=>{
+
+window.location.href =
+"weixin://";
+
+},1000);
+
+}
+
+const text =
 "#小程序://携程旅行订酒店机票火车汽车门票/yXuQSo251pllemC";
 
 copyText(text);
@@ -560,6 +578,24 @@ window.location.href =
 }
 
 function openMeituanMiniProgram(){
+
+const text =
+"#小程序://美团酒店+/0HJeCNgXdnBVlQo";
+
+copyText(text);
+
+showToast(
+"美团口令已复制，即将打开微信"
+);
+
+setTimeout(()=>{
+
+window.location.href =
+"weixin://";
+
+},1000);
+
+}
 
 const text =
 "#小程序://美团酒店+/04wsc2evoQSqWic";
